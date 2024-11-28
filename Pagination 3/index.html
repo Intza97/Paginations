@@ -1,70 +1,70 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
+<html lang="es">
+<head>
   <!--==================== METADATOS ====================-->
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <meta name="description" content="Paginations">
-      <meta name="keywords" content="HTML-CSS-JS">
-      <meta name="author" content="Rocio Cuello">
-      
-      <!--==================== CSS ====================-->
-      <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Paginations">
+  <meta name="keywords" content="HTML-CSS-JS">
+  <meta name="author" content="Rocio Cuello">
 
-      <!--==================== TITULO ====================-->
-      <title>Paginations | Pagination</title>
+  <!--==================== CSS ====================-->
+  <link rel="stylesheet" href="assets/css/style.css">
 
-      <!--==================== ICONO DE PESTAÑA ====================-->
-      <link rel="icon" sizes="64x64" href="assets/img/favicon.webp"> 
+  <!--==================== TITULO ====================-->
+  <title>Paginations | Pagination</title>
 
-    <!--==================== ICONOS ====================-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <!--==================== ICONO DE PESTAÑA ====================-->
+  <link rel="icon" sizes="64x64" href="assets/img/favicon.webp"> 
+
+  <!--==================== ICONOS ====================-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     </head>
-    <body>
-      <div class="container">
-        <div class="pagination">
-          <buttton class="btn1" onclick="backBtn()"><img src="assets/img/flecha.png" alt="">prev</buttton>
-          <ul>
-            <li class="link active" value="1" onclick="activeLink()">1</li>
-            <li class="link" value="2" onclick="activeLink()">2</li>
-            <li class="link" value="3" onclick="activeLink()">3</li>
-            <li class="link" value="4" onclick="activeLink()">4</li>
-            <li class="link" value="5" onclick="activeLink()">5</li>
-            <li class="link" value="6" onclick="activeLink()">6</li>
-          </ul>
-          <buttton class="btn2" onclick="nextBtn()">next<img src="assets/img/flecha.png" alt=""></buttton>
-        </div>
-      </div>
-       <!--==================== script ====================-->
-    <script>
-      let link =document.getElementsByClassName("link");
-      let currentValue=1;
-      function activeLink(){
+<body>
+  <div class="container">
+    <div class="pagination">
+      <buttton class="btn1" onclick="backBtn()"><img src="assets/img/flecha.png" alt="">prev</buttton>
+      <ul>
+        <li class="link active" value="1" onclick="activeLink()">1</li>
+        <li class="link" value="2" onclick="activeLink()">2</li>
+        <li class="link" value="3" onclick="activeLink()">3</li>
+        <li class="link" value="4" onclick="activeLink()">4</li>
+        <li class="link" value="5" onclick="activeLink()">5</li>
+        <li class="link" value="6" onclick="activeLink()">6</li>
+      </ul>
+      <buttton class="btn2" onclick="nextBtn()">next<img src="assets/img/flecha.png" alt=""></buttton>
+    </div>
+  </div>
+  <!--==================== script ====================-->
+  <script>
+    let link =document.getElementsByClassName("link");
+    let currentValue=1;
+    function activeLink(){
+      for(l of link){
+        l.classList.remove("active");
+      }
+      event.target.classList.add("active");
+      currentValue=event.target.value;
+    }
+    function backBtn(){
+      if(currentValue>1){
         for(l of link){
-          l.classList.remove("active");
-        }
-        event.target.classList.add("active");
-        currentValue=event.target.value;
+        l.classList.remove("active");
       }
-      function backBtn(){
-        if(currentValue>1){
-          for(l of link){
-          l.classList.remove("active");
-        }
-       currentValue--;
-       link[currentValue-1].classList.add("active");
-        }
+      currentValue--;
+      link[currentValue-1].classList.add("active");
       }
-      function nextBtn(){
-        if(currentValue<6){
-          for(l of link){
-          l.classList.remove("active");
-        }
-       currentValue++;
-       link[currentValue-1].classList.add("active");
-        }
+    }
+    function nextBtn(){
+      if(currentValue<6){
+        for(l of link){
+        l.classList.remove("active");
       }
-    </script>
-  </body>
+      currentValue++;
+      link[currentValue-1].classList.add("active");
+      }
+    }
+  </script>
+</body>
 </html>
